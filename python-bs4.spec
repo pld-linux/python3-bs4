@@ -1,0 +1,95 @@
+#
+# Conditional build:
+%bcond_without	tests	# do not perform "make test"
+%bcond_without	python2 # CPython 2.x module
+%bcond_without	python3 # CPython 3.x module
+
+%define 	module	bs4
+Summary:	beautifulsoup4 - Screen-scraping library
+Name:		python-%{module}
+Version:	4.4.1
+Release:	1
+License:	MIT
+Group:		Libraries/Python
+Source0:	https://pypi.python.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
+# Source0-md5:	8fbd9a7cac0704645fa20d1419036815
+URL:		http://www.crummy.com/software/BeautifulSoup/bs4/
+BuildRequires:	rpm-pythonprov
+%if %{with python2}
+BuildRequires:	python-setuptools
+%endif
+%if %{with python3}
+BuildRequires:	python3-setuptools
+%endif
+Requires:	python-modules
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+Beautiful Soup sits atop an HTML or XML parser, providing Pythonic
+idioms for iterating, searching, and modifying the parse tree.
+
+%package -n python3-%{module}
+Summary:	beautifulsoup4 - Screen-scraping library
+Group:		Libraries/Python
+Requires:	python3-modules
+
+%description -n python3-%{module}
+Beautiful Soup sits atop an HTML or XML parser, providing Pythonic
+idioms for iterating, searching, and modifying the parse tree.
+
+%prep
+%setup -q -n beautifulsoup4-%{version}
+
+%build
+%if %{with python2}
+%{__python} setup.py build --build-base build-2 %{?with_tests:test}
+%endif
+
+%if %{with python3}
+%{__python3} setup.py build --build-base build-3 %{?with_tests:test}
+%endif
+
+%if %{with doc}
+cd docs
+%{__make} -j1 html
+rm -rf _build/html/_sources
+%endif
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%if %{with python2}
+%{__python} setup.py \
+	build --build-base build-2 \
+	install --skip-build \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
+%endif
+
+%if %{with python3}
+%{__python3} setup.py \
+	build --build-base build-3 \
+	install --skip-build \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
+%endif
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%if %{with python2}
+%files
+%defattr(644,root,root,755)
+%doc {AUTHORS,NEWS,README,TODO}.txt
+%{py_sitescriptdir}/bs4
+%{py_sitescriptdir}/beautifulsoup4-%{version}-py*.egg-info
+%endif
+
+%if %{with python3}
+%files -n python3-%{module}
+%defattr(644,root,root,755)
+%doc {AUTHORS,NEWS,README,TODO}.txt
+%{py3_sitescriptdir}/bs4
+%{py3_sitescriptdir}/beautifulsoup4-%{version}-py*.egg-info
+%endif
