@@ -1,0 +1,9 @@
+diff -dur beautifulsoup4-4.4.1.orig/setup.py beautifulsoup4-4.4.1/setup.py
+--- beautifulsoup4-4.4.1.orig/setup.py	2015-09-29 02:11:15.000000000 +0200
++++ beautifulsoup4-4.4.1/setup.py	2015-11-26 10:42:43.000000000 +0100
+@@ -30,4 +30,5 @@
+                  "Topic :: Text Processing :: Markup :: SGML",
+                  "Topic :: Software Development :: Libraries :: Python Modules",
+              ],
++    test_suite = "bs4.tests",
+ )
