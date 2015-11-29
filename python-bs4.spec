@@ -15,6 +15,7 @@ Source0:	https://pypi.python.org/packages/source/b/beautifulsoup4/beautifulsoup4
 # Source0-md5:	8fbd9a7cac0704645fa20d1419036815
 Patch0:		test_suite.patch
 URL:		http://www.crummy.com/software/BeautifulSoup/bs4/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	rpm-pythonprov
 %if %{with python2}
 BuildRequires:	python-setuptools
