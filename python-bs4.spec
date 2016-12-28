@@ -8,7 +8,7 @@
 Summary:	beautifulsoup4 - Screen-scraping library
 Name:		python-%{module}
 Version:	4.4.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
