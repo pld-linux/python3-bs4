@@ -7,12 +7,12 @@
 %define 	module	bs4
 Summary:	beautifulsoup4 - Screen-scraping library
 Name:		python-%{module}
-Version:	4.4.1
-Release:	5
+Version:	4.6.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
-# Source0-md5:	8fbd9a7cac0704645fa20d1419036815
+# Source0-md5:	c17714d0f91a23b708a592cb3c697728
 Patch0:		test_suite.patch
 URL:		http://www.crummy.com/software/BeautifulSoup/bs4/
 BuildRequires:	rpmbuild(macros) >= 1.710
