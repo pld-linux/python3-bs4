@@ -10,13 +10,14 @@ Summary:	beautifulsoup4 - Screen-scraping library
 Summary(pl.UTF-8):	beautifulsoup4 - biblioteka przechwytująca wyjście
 Name:		python-%{module}
 Version:	4.6.0
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/beautifulsoup4/
 Source0:	https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
 # Source0-md5:	c17714d0f91a23b708a592cb3c697728
 Patch0:		test_suite.patch
+Patch1:		%{name}-lxml.patch
 URL:		https://www.crummy.com/software/BeautifulSoup/
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	rpm-pythonprov
@@ -73,6 +74,7 @@ Dokumentacja API modułu Pythona beautifulsoup4.
 %prep
 %setup -q -n beautifulsoup4-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %if %{with python2}

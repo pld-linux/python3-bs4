@@ -1,0 +1,14 @@
+--- beautifulsoup4-4.6.0/bs4/element.py.orig	2017-05-07 14:15:39.000000000 +0200
++++ beautifulsoup4-4.6.0/bs4/element.py	2021-01-23 20:55:10.229088076 +0100
+@@ -29,6 +29,11 @@
+ class NamespacedAttribute(unicode):
+ 
+     def __new__(cls, prefix, name, namespace=None):
++        if not name:
++            # This is the default namespace. Its name "has no value"
++            # per https://www.w3.org/TR/xml-names/#defaulting
++            name = None
++
+         if name is None:
+             obj = unicode.__new__(cls, prefix)
+         elif prefix is None:
