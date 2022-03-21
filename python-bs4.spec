@@ -18,6 +18,7 @@ Source0:	https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautif
 # Source0-md5:	c17714d0f91a23b708a592cb3c697728
 Patch0:		test_suite.patch
 Patch1:		%{name}-lxml.patch
+Patch2:		%{name}-smart_quotes.patch
 URL:		https://www.crummy.com/software/BeautifulSoup/
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	rpm-pythonprov
@@ -75,6 +76,7 @@ Dokumentacja API modułu Pythona beautifulsoup4.
 %setup -q -n beautifulsoup4-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %if %{with python2}

@@ -1,0 +1,11 @@
+--- beautifulsoup4-4.6.3/bs4/tests/test_soup.py.orig	2016-07-27 03:27:42.000000000 +0200
++++ beautifulsoup4-4.6.3/bs4/tests/test_soup.py	2022-03-21 18:20:50.490829014 +0100
+@@ -171,7 +171,7 @@ class TestEntitySubstitution(unittest.Te
+         # MS smart quotes are a common source of frustration, so we
+         # give them a special test.
+         quotes = b"\x91\x92foo\x93\x94"
+-        dammit = UnicodeDammit(quotes)
++        dammit = UnicodeDammit(quotes, override_encodings=["windows-1252"])
+         self.assertEqual(self.sub.substitute_html(dammit.markup),
+                           "&lsquo;&rsquo;foo&ldquo;&rdquo;")
+ 
