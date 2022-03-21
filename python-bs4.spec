@@ -9,13 +9,13 @@
 Summary:	beautifulsoup4 - Screen-scraping library
 Summary(pl.UTF-8):	beautifulsoup4 - biblioteka przechwytująca wyjście
 Name:		python-%{module}
-Version:	4.6.0
-Release:	4
+Version:	4.6.3
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/beautifulsoup4/
 Source0:	https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
-# Source0-md5:	c17714d0f91a23b708a592cb3c697728
+# Source0-md5:	a08ea866a5c508d9b4c28c4d21e05df8
 Patch0:		test_suite.patch
 Patch1:		%{name}-lxml.patch
 Patch2:		%{name}-smart_quotes.patch
@@ -108,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,COPYING,NEWS,README,TODO}.txt
+%doc AUTHORS.txt COPYING.txt NEWS.txt README.md TODO.txt
 %{py_sitescriptdir}/bs4
 %{py_sitescriptdir}/beautifulsoup4-%{version}-py*.egg-info
 %endif
@@ -116,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc {AUTHORS,COPYING,NEWS,README,TODO}.txt
+%doc AUTHORS.txt COPYING.txt NEWS.txt README.md TODO.txt
 %{py3_sitescriptdir}/bs4
 %{py3_sitescriptdir}/beautifulsoup4-%{version}-py*.egg-info
 %endif
