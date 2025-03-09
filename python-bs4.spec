@@ -77,8 +77,8 @@ Dokumentacja API modułu Pythona beautifulsoup4.
 
 %prep
 %setup -q -n beautifulsoup4-%{version}
-%patch0 -p1
-%patch2 -p1
+%patch -P 0 -p1
+%patch -P 2 -p1
 
 # no longer supported by setuptools
 %{__sed} -i -e '/use_2to3/d' setup.py
