@@ -11,7 +11,7 @@ Summary(pl.UTF-8):	beautifulsoup4 - biblioteka przechwytująca wyjście
 Name:		python-%{module}
 # keep 4.9.x here for python2 support
 Version:	4.9.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/beautifulsoup4/
