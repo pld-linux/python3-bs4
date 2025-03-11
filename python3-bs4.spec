@@ -18,8 +18,10 @@ URL:		https://www.crummy.com/software/BeautifulSoup/
 BuildRequires:	python3-build
 BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.2
+%if %{with tests}
 BuildRequires:	python3-soupsieve >= 1.2
 BuildRequires:	python3-typing_extensions
+%endif
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	rpm-pythonprov
 %if %{with doc}
