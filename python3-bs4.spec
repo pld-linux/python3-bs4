@@ -8,7 +8,7 @@ Summary:	beautifulsoup4 - Screen-scraping library
 Summary(pl.UTF-8):	beautifulsoup4 - biblioteka przechwytująca wyjście
 Name:		python3-%{module}
 Version:	4.13.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/beautifulsoup4/
