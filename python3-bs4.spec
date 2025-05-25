@@ -17,17 +17,21 @@ Source0:	https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautif
 URL:		https://www.crummy.com/software/BeautifulSoup/
 BuildRequires:	python3-build
 BuildRequires:	python3-installer
-BuildRequires:	python3-modules >= 1:3.2
+BuildRequires:	python3-modules >= 1:3.7.0
 %if %{with tests}
-BuildRequires:	python3-soupsieve >= 1.2
-BuildRequires:	python3-typing_extensions
+BuildRequires:	python3-html5lib
+BuildRequires:	python3-lxml
+BuildRequires:	python3-packaging
+BuildRequires:	python3-pytest >= 6
+BuildRequires:	python3-soupsieve >= 2.6
+BuildRequires:	python3-typing_extensions >= 4.0.0
 %endif
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	rpm-pythonprov
 %if %{with doc}
 BuildRequires:	sphinx-pdg-3
 %endif
-Requires:	python-modules >= 1:2.7
+Requires:	python3-modules >= 1:3.7.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,9 +62,7 @@ Dokumentacja API modułu Pythona beautifulsoup4.
 %py3_build_pyproject
 
 %if %{with tests}
-# use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-PYTEST_PLUGINS= \
 %{__python3} -m pytest bs4/tests
 %endif
 
