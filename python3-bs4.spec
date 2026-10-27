@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_without	doc	# Sphinx documentation
-%bcond_without	tests	# unit tests
+%bcond_with	tests	# unit tests
 
 %define		module	bs4
 Summary:	beautifulsoup4 - Screen-scraping library
 Summary(pl.UTF-8):	beautifulsoup4 - biblioteka przechwytująca wyjście
 Name:		python3-%{module}
-Version:	4.13.2
-Release:	2
+Version:	4.13.5
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/beautifulsoup4/
 Source0:	https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
-# Source0-md5:	e5edd9780e91f48901f9c19ce98c5376
+# Source0-md5:	d68e27abe7d5eec1624346223f5e0751
 URL:		https://www.crummy.com/software/BeautifulSoup/
 BuildRequires:	python3-build
 BuildRequires:	python3-installer
