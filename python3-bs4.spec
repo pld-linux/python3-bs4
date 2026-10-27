@@ -76,7 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %py3_install_pyproject
 
+%if %{with tests}
 %{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/bs4/tests
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
