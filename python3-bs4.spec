@@ -7,15 +7,16 @@
 Summary:	beautifulsoup4 - Screen-scraping library
 Summary(pl.UTF-8):	beautifulsoup4 - biblioteka przechwytująca wyjście
 Name:		python3-%{module}
-Version:	4.13.5
+Version:	4.15.0
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/beautifulsoup4/
 Source0:	https://files.pythonhosted.org/packages/source/b/beautifulsoup4/beautifulsoup4-%{version}.tar.gz
-# Source0-md5:	d68e27abe7d5eec1624346223f5e0751
+# Source0-md5:	a9d04db2259b78ec23fcdfddfed5bcb8
 URL:		https://www.crummy.com/software/BeautifulSoup/
 BuildRequires:	python3-build
+BuildRequires:	python3-hatchling
 BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.7.0
 %if %{with tests}
@@ -75,10 +76,6 @@ PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 rm -rf $RPM_BUILD_ROOT
 
 %py3_install_pyproject
-
-%if %{with tests}
-%{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/bs4/tests
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
